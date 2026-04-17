@@ -1,0 +1,16 @@
+<div class="page-shell">
+  <app-header [unresolved]="unresolvedCount()" />
+
+  <section class="ticket-grid">
+    <div class="grid-header">
+      <h2>Active Issues</h2>
+      <p>Manage and resolve pending tickets</p>
+    </div>
+
+    @for (issue of issues(); track issue.id) {
+      <app-ticket-card [issue]="issue" (resolved)="updateIssue($event)" />
+    }
+  </section>
+
+  <app-footer />
+</div>
